@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francis task1 - Responsive Landing Page</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for background and text to ensure Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding-top: 80px; /* Space for fixed header */
+            background-color: #000; /* Black background for the page */
+            color: #fff; /* White text for page content */
+            scroll-behavior: smooth;
+        }
+
+        /* Specific styling for the header */
+        .header {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Scrolled state for the header */
+        .header.scrolled {
+            background-color: #E30B5C; /* Raspberry Pink */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Nav link default color */
+        .nav-link {
+            color: #fff; /* White text */
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            border-radius: 0.5rem; /* Rounded corners */
+            padding: 0.5rem 1rem;
+        }
+
+        /* Nav link hover state */
+        .nav-link:hover {
+            color: #E30B5C; /* Raspberry Pink on hover */
+            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+        }
+
+        /* Scrolled nav link hover state */
+        .header.scrolled .nav-link:hover {
+            color: #000; /* Black text when scrolled and hovered */
+            background-color: rgba(255, 255, 255, 0.8); /* Lighter background when scrolled and hovered */
+        }
+
+        /* Hero section specific styling */
+        .hero-section {
+            background-color: #000; /* Black */
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: url('https://placehold.co/1920x1080/E30B5C/FFFFFF?text=Welcome%20to%20ProDigy%20Infotech'); /* Placeholder image with raspberry pink */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Dummy content sections */
+        .content-section {
+            padding: 4rem 1rem;
+            min-height: 80vh; /* Ensure scrollability */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: #1a1a1a; /* Darker black */
+        }
+
+        .content-section:nth-child(odd) {
+            background-color: #0d0d0d; /* Slightly lighter black */
+        }
+
+        .heading-text {
+            color: #E30B5C; /* Raspberry pink for headings */
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .paragraph-text {
+            color: #bbb; /* Lighter grey for paragraphs */
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-link {
+                padding: 0.75rem 1.5rem;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Header/Navigation Bar -->
+    <header id="main-header" class="header fixed top-0 left-0 w-full z-50 p-4">
+        <nav class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <!-- Logo/Site Title -->
+            <div class="text-white text-2xl font-bold rounded-md mb-4 md:mb-0">
+                ProDigy <span class="text-rose-500">Infotech</span>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-white px-4">
+        <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg leading-tight">
+                Innovating the Future of <span class="text-rose-500">Technology</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-8 drop-shadow-md">
+                We empower businesses with cutting-edge IT solutions designed for success in the digital age.
+            </p>
+            <button class="bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg transform hover:scale-105">
+                Learn More
+            </button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="content-section bg-zinc-900 text-white px-4">
+        <h2 class="text-3xl md:text-5xl heading-text">About ProDigy Infotech</h2>
+        <p class="text-md md:text-lg paragraph-text mt-4">
+            ProDigy Infotech is a leading technology firm dedicated to delivering innovative and reliable IT solutions.
+            With a focus on client satisfaction, we specialize in web development, mobile applications, cloud services,
+            and digital marketing. Our team of experts is committed to transforming your ideas into reality.
+        </p>
+        <p class="text-md md:text-lg paragraph-text mt-2">
+            We believe in fostering long-term partnerships, providing robust support, and adapting to the evolving
+            technological landscape to ensure our clients always stay ahead.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="content-section bg-zinc-800 text-white px-4">
+        <h2 class="text-3xl md:text-5xl heading-text">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 w-full max-w-6xl">
+            <!-- Service Card 1 -->
+            <div class="bg-zinc-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-2xl font-semibold text-rose-400 mb-2">Web Development</h3>
+                <p class="text-gray-300">
+                    Crafting responsive, high-performance websites tailored to your business needs.
+                </p>
+            </div>
+            <!-- Service Card 2 -->
+            <div class="bg-zinc-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-2xl font-semibold text-rose-400 mb-2">Mobile App Development</h3>
+                <p class="text-gray-300">
+                    Building intuitive and engaging mobile applications for iOS and Android platforms.
+                </p>
+            </div>
+            <!-- Service Card 3 -->
+            <div class="bg-zinc-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-2xl font-semibold text-rose-400 mb-2">Cloud Solutions</h3>
+                <p class="text-gray-300">
+                    Scalable and secure cloud infrastructure to power your digital operations.
+                </p>
+            </div>
+            <!-- Service Card 4 -->
+            <div class="bg-zinc-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-2xl font-semibold text-rose-400 mb-2">Digital Marketing</h3>
+                <p class="text-gray-300">
+                    Boosting your online presence with effective SEO, SMM, and content strategies.
+                </p>
+            </div>
+            <!-- Service Card 5 -->
+            <div class="bg-zinc-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-2xl font-semibold text-rose-400 mb-2">UI/UX Design</h3>
+                <p class="text-gray-300">
+                    Creating user-centric designs that are both beautiful and highly functional.
+                </p>
+            </div>
+            <!-- Service Card 6 -->
+            <div class="bg-zinc-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <h3 class="text-2xl font-semibold text-rose-400 mb-2">IT Consulting</h3>
+                <p class="text-gray-300">
+                    Expert guidance to navigate complex technology challenges and achieve your goals.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="content-section bg-zinc-900 text-white px-4">
+        <h2 class="text-3xl md:text-5xl heading-text">Our Portfolio</h2>
+        <p class="text-md md:text-lg paragraph-text mt-4 mb-8">
+            Explore some of our recent projects that showcase our expertise and commitment to excellence.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+            <!-- Portfolio Item 1 -->
+            <div class="bg-zinc-700 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <img src="https://placehold.co/600x400/333/fff?text=Project%20Alpha" alt="Project Alpha" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-rose-400 mb-2">Project Alpha</h3>
+                    <p class="text-gray-300">A high-performance e-commerce platform built for scale.</p>
+                </div>
+            </div>
+            <!-- Portfolio Item 2 -->
+            <div class="bg-zinc-700 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <img src="https://placehold.co/600x400/333/fff?text=Mobile%20App%20X" alt="Mobile App X" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-rose-400 mb-2">Mobile App X</h3>
+                    <p class="text-gray-300">An intuitive mobile application for health and fitness tracking.</p>
+                </div>
+            </div>
+            <!-- Portfolio Item 3 -->
+            <div class="bg-zinc-700 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <img src="https://placehold.co/600x400/333/fff?text=Cloud%20Dashboard" alt="Cloud Dashboard" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-rose-400 mb-2">Cloud Dashboard</h3>
+                    <p class="text-gray-300">A custom cloud management dashboard for enterprise clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section bg-zinc-800 text-white px-4">
+        <h2 class="text-3xl md:text-5xl heading-text">Contact Us</h2>
+        <p class="text-md md:text-lg paragraph-text mt-4 mb-8">
+            Have a project in mind or just want to say hello? Reach out to us!
+        </p>
+        <form class="w-full max-w-lg bg-zinc-700 p-8 rounded-lg shadow-md">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-300 text-sm font-bold mb-2 text-left">Name</label>
+                <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200" placeholder="Your Name">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-300 text-sm font-bold mb-2 text-left">Email</label>
+                <input type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200" placeholder="your.email@example.com">
+            </div>
+            <div class="mb-6">
+                <label for="message" class="block text-gray-300 text-sm font-bold mb-2 text-left">Message</label>
+                <textarea id="message" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200" placeholder="Your message..."></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-rose-600 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105">
+                    Send Message
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-500 py-6 text-center text-sm">
+        &copy; 2025 ProDigy Infotech. All rights reserved.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('main-header');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Function to handle scroll event
+            function handleScroll() {
+                // If the scroll position is more than 50 pixels from the top
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled'); // Add 'scrolled' class
+                } else {
+                    header.classList.remove('scrolled'); // Remove 'scrolled' class
+                }
+            }
+
+            // Add scroll event listener to the window
+            window.addEventListener('scroll', handleScroll);
+
+            // Initial check in case the page is loaded scrolled
+            handleScroll();
+        });
+    </script>
+</body>
+</html>
